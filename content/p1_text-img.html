@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/mstyle.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="header-container">
+        <header>
+            <h2>Тут будут правила</h2>
+        </header>
+    </div>
+
+    <!--===== КОНТЕНТ =====-->
+    <div id="main-container">
+        <main>
+            <article>
+                <div id="sidebar">
+                    <h3>Settings</h3>
+                    <div id="levSet">
+                        <form name="f1">
+                            Выберете уровень:<br>
+                            <select name="lev" id="s1">
+                              <option value="0">Легкий</option>
+                              <option value="1">Сложный</option>
+                            </select>
+                            <input type="button" onClick="setLevel()" value="Установить">
+                        </form>
+                    </div>
+
+                    <div id="colSet">
+                        <form name="f1">
+                            Выберете тему:<br>
+                            <select name="lev" id="s1">
+                              <option value="0">Светлый</option>
+                              <option value="1">Темный</option>
+                            </select>
+                            <input type="button" onClick="" value="Пока не работаю">
+                        </form>
+                    </div>
+
+                    <input type="button" onClick="start()" value="Начать игру">
+                </div>
+                <div class="cont">
+                    <h3>Игровое поле</h3>
+                    <h2>Семь</h2>
+                    <table id="maint">
+                        <tr>
+                            <th>Ячейка 1 </th>
+                            <th>Ячейка 2 </th>
+                            <th>Ячейка 3</th>
+                            <th>Ячейка 4</th>
+                        </tr>
+                        <tr>
+                            <th>Ячейка 1</th>
+                            <th>Ячейка 2</th>
+                            <th>Ячейка 3</th>
+                            <th>Ячейка 4</th>
+                        </tr>
+                    </table>
+
+                </div>
+            </article>
+
+        </main>
+
+    </div>
+
+
+    <script src="../js/mjs.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>
