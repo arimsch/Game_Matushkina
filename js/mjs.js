@@ -1,4 +1,5 @@
 var time = 5000;
+var currentNum;
 
 function setLevel() {
     var a = document.getElementById('s1').value;
@@ -7,8 +8,17 @@ function setLevel() {
     start();
 }
 
+function rndNum(min, max) {
+    return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
 function start() {
     setTimeout(alertTimer, time);
+    currentNum = rndNum(0, 9)
+    document.getElementById('textNum').innerText = currentNum;
+    document.getElementById('a0').style.fontSize = "900";
+    document.getElementById('a0').innerText = currentNum;
+
 }
 
 function alertTimer() {
@@ -26,6 +36,7 @@ function alertTimer() {
         timer: 1000
     });
 }
+
 
 function s(id) {
     var canvas = document.getElementById(id);

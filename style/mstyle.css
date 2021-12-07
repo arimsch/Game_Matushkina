@@ -39,3 +39,16 @@ article {
     order: 2;
     margin: 40px;
 }
+
+.col {
+    text-align: center;
+    border: 2px solid;
+    width: 30vh;
+    height: 30vh;
+}
+
+#a0 {
+    background-color: brown;
+    font-weight: 900;
+    font-size: 90px;
+}
