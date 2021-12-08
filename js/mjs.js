@@ -1,10 +1,26 @@
+// ограничение игры по времени
 var time = 5000;
-var currentNum;
+var timerId;
+// установка уровня сложности
+var level = 0;
+// имя пользователя при авторизации
+var userName;
 
+// ---- для игры 1 (поиск картинки с числом)
+// текущее значение числа для поиска
+var currentNum;
+// число картинок
+var countCards = 8;
+// индекс id ячейки, где искомое значение числа
+var trueId;
+// текущий счет игры
+var countForGame = 0;
+
+// НАЧАЛО ---- Общие функции ----
 function setLevel() {
-    var a = document.getElementById('s1').value;
-    if (a == 0) time = 5000;
-    if (a == 1) time = 10000;
+    level = document.getElementById('s1').value;
+    if (level == 0) time = 5000;
+    if (level == 1) time = 10000;
     start();
 }
 
@@ -12,13 +28,100 @@ function rndNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
 
+function init(id) {
+    userName = document.getElementById(id).value;
+    sessionStorage.setItem(userName, 0);
+    alert(sessionStorage.getItem(userName));
+}
+// КОНЕЦ ---- Общие функции ----
+
+// НАЧАЛО ---- Игра1 (текст-картинка) ----
 function start() {
-    setTimeout(alertTimer, time);
+    if (timerId != undefined) {
+        clearTimeout(timerId);
+    }
+    timerId = setTimeout(alertTimer, time);
+    document.getElementById('curCount').innerText = countForGame;
     currentNum = rndNum(0, 9)
     document.getElementById('textNum').innerText = currentNum;
-    document.getElementById('a0').style.fontSize = "900";
-    document.getElementById('a0').innerText = currentNum;
+    trueId = rndNum(0, countCards - 1);
+    document.getElementById('a' + trueId).innerText = currentNum;
+    for (let i = 0; i < countCards; i++) {
+        if (i == trueId) {
+            continue;
+        }
+        var temp = rndNum(0, 9);
+        if (temp != currentNum) {
+            document.getElementById('a' + i).innerText = temp;
+        } else {
+            if (temp != 0) { document.getElementById('a' + i).innerText = temp - 1; } else { document.getElementById('a' + i).innerText = temp + 1; }
+        }
+    }
+}
 
+function clickOncard(id) {
+    if (id == ("a" + trueId)) {
+        if (level == 0) {
+            sumMore(level + 1);
+            swal({
+                title: 'Верно! +1 балл',
+                text: "Прожолжай так же!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+            start();
+        };
+        if (level == 1) {
+            sumMore(level + 2);
+            swal({
+                title: 'Верно! +2 балла',
+                text: "Прожолжай так же!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+            start();
+        };
+    } else {
+        if (level == 0) {
+            sumLess(level + 1);
+            swal({
+                title: 'Ошибка! -1 балл',
+                text: "Попробуй еще раз!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+        };
+        if (level == 1) {
+            sumLess(level + 2);
+            swal({
+                title: 'Ошибка! -2 балла',
+                text: "Попробуй еще раз!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+        }
+    }
+}
+
+function sumMore(num) {
+    countForGame += num;
+}
+
+function sumLess(num) {
+    if (countForGame >= (num))
+        countForGame -= num;
 }
 
 function alertTimer() {
@@ -35,7 +138,13 @@ function alertTimer() {
         showCancelButton: false,
         timer: 1000
     });
+    start();
 }
+
+
+
+
+
 
 
 function s(id) {
