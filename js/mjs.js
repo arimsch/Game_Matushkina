@@ -3,8 +3,6 @@ var time = 15000;
 var timerId;
 // установка уровня сложности
 var level = 0;
-// имя пользователя при авторизации
-var userName;
 
 // ---- для игры 1 (поиск картинки с числом)
 // текущее значение числа для поиска
@@ -33,14 +31,17 @@ function init(id) {
     userName = document.getElementById(id).value;
     localStorage.setItem(userName, 0);
 }
+
+function printName() {
+    document.getElementById('usname').innerText = localStorage.key(0);
+    document.getElementById('curCount').innerText = countForGame;
+}
 // КОНЕЦ ---- Общие функции ----
 
 // НАЧАЛО ---- Игра1 (текст-картинка) ----
 function start() {
     if (timerId != undefined) {
         clearTimeout(timerId);
-    } else {
-        document.getElementById('usname').innerText = localStorage.key(0);
     }
     timerId = setTimeout(alertTimer, time);
     document.getElementById('curCount').innerText = countForGame;
