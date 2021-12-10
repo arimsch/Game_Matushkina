@@ -11,6 +11,10 @@
 body {
     font-size: 100%;
     font-family: sans-serif;
+    height: 100%;
+    background-color: thistle;
+    /* background-image: url(../img/background.jpg); */
+    /* background-size: 100%; */
 }
 
 header {
@@ -18,13 +22,13 @@ header {
     justify-content: center;
     align-items: center;
     height: 18vh;
-    background-color: aqua;
+    background-color: #FFE340;
     width: 100%;
 }
 
 article {
-    position: fixed;
-    background-color: #fdf6c8;
+    /* position: fixed; */
+    background-color: #fffacd;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -34,9 +38,9 @@ article {
 }
 
 #sidebar {
-    /* display: flex;
+    display: flex;
     flex-direction: column;
-    justify-content: space-between; */
+    justify-content: space-between;
     order: 1;
     background-color: #fefae0;
     width: 20%;
@@ -54,16 +58,16 @@ article {
     border: 2px solid;
     width: 30vh;
     height: 30vh;
+    background-color: wheat;
 }
 
 #a0 {
-    background-color: brown;
+    font-style: italic;
     font-weight: 900;
     font-size: 90px;
 }
 
 #a1 {
-    background-color: yellow;
     font-weight: 1000;
     font-size: 80px;
 }

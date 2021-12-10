@@ -1,5 +1,5 @@
 // ограничение игры по времени
-var time = 5000;
+var time = 15000;
 var timerId;
 // установка уровня сложности
 var level = 0;
@@ -19,7 +19,7 @@ var countForGame = 0;
 // НАЧАЛО ---- Общие функции ----
 function setLevel() {
     level = document.getElementById('s1').value;
-    if (level == 0) time = 5000;
+    if (level == 0) time = 15000;
     if (level == 1) time = 10000;
     start();
 }
@@ -42,8 +42,8 @@ function start() {
     }
     timerId = setTimeout(alertTimer, time);
     document.getElementById('curCount').innerText = countForGame;
-    currentNum = rndNum(0, 9)
-    document.getElementById('textNum').innerText = currentNum;
+    currentNum = rndNum(0, 9);
+    parsNum(currentNum);
     trueId = rndNum(0, countCards - 1);
     document.getElementById('a' + trueId).innerText = currentNum;
     for (let i = 0; i < countCards; i++) {
@@ -56,6 +56,41 @@ function start() {
         } else {
             if (temp != 0) { document.getElementById('a' + i).innerText = temp - 1; } else { document.getElementById('a' + i).innerText = temp + 1; }
         }
+    }
+}
+
+function parsNum(num) {
+    switch (num) {
+        case 0:
+            document.getElementById('textNum').innerText = 'ноль';
+            break;
+        case 1:
+            document.getElementById('textNum').innerText = 'один';
+            break;
+        case 2:
+            document.getElementById('textNum').innerText = 'два';
+            break;
+        case 3:
+            document.getElementById('textNum').innerText = 'три';
+            break;
+        case 4:
+            document.getElementById('textNum').innerText = 'четыре';
+            break;
+        case 5:
+            document.getElementById('textNum').innerText = 'пять';
+            break;
+        case 6:
+            document.getElementById('textNum').innerText = 'шесть';
+            break;
+        case 7:
+            document.getElementById('textNum').innerText = 'семь';
+            break;
+        case 8:
+            document.getElementById('textNum').innerText = 'восемь';
+            break;
+        case 9:
+            document.getElementById('textNum').innerText = 'девять';
+            break;
     }
 }
 
@@ -99,6 +134,7 @@ function clickOncard(id) {
                 showCancelButton: false,
                 timer: 1000
             });
+            document.getElementById('curCount').innerText = countForGame;
         };
         if (level == 1) {
             sumLess(level + 2);
@@ -111,6 +147,7 @@ function clickOncard(id) {
                 showCancelButton: false,
                 timer: 1000
             });
+            document.getElementById('curCount').innerText = countForGame;
         }
     }
 }
