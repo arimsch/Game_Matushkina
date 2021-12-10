@@ -31,7 +31,7 @@ function rndNum(min, max) {
 function init(id) {
     localStorage.clear();
     userName = document.getElementById(id).value;
-    sessionStorage.setItem(userName, 0);
+    localStorage.setItem(userName, 0);
 }
 // КОНЕЦ ---- Общие функции ----
 
@@ -39,6 +39,8 @@ function init(id) {
 function start() {
     if (timerId != undefined) {
         clearTimeout(timerId);
+    } else {
+        document.getElementById('usname').innerText = localStorage.key(0);
     }
     timerId = setTimeout(alertTimer, time);
     document.getElementById('curCount').innerText = countForGame;
@@ -177,6 +179,7 @@ function alertTimer() {
     });
     start();
 }
+// конец ---- Игра1 (текст-картинка) ----
 
 
 
