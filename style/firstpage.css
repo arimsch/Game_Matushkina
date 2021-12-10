@@ -33,7 +33,7 @@ a {
 }
 
 #zatemnenie {
-    background: rgba(102, 102, 102, 0.5);
+    background: rgba(102, 102, 102, 0.8);
     width: 100%;
     height: 100%;
     position: absolute;
@@ -46,10 +46,11 @@ a {
     width: 40%;
     height: 20%;
     text-align: center;
+    font-size: 25px;
     padding: 15px;
-    border: 3px solid #0000cc;
+    border: 3px solid #F17434;
     border-radius: 10px;
-    color: #0000cc;
+    color: rgb(56, 55, 55);
     position: absolute;
     top: 0;
     right: 0;
@@ -65,16 +66,18 @@ a {
 
 .close {
     display: inline-block;
-    border: 1px solid #0000cc;
-    color: #0000cc;
-    padding: 0 12px;
-    margin: 10px;
+    border-radius: 50px;
+    background-color: white;
+    background-image: -webkit-repeating-linear-gradient(45deg, #FFDDBB, #FFDDBB 1px, rgba(255, 0, 0, 0) 2px, rgba(255, 0, 0, 0) 10px), -webkit-repeating-linear-gradient(135deg, #FFDDBB, #FFDDBB 1px, rgba(255, 0, 0, 0) 2px, rgba(255, 0, 0, 0) 10px);
+    background-image: -o-repeating-linear-gradient(45deg, #FFDDBB, #FFDDBB 1px, rgba(255, 0, 0, 0) 2px, rgba(255, 0, 0, 0) 10px), -o-repeating-linear-gradient(135deg, #FFDDBB, #FFDDBB 1px, rgba(255, 0, 0, 0) 2px, rgba(255, 0, 0, 0) 10px);
+    background-image: repeating-linear-gradient(45deg, #FFDDBB, #FFDDBB 1px, transparent 2px, transparent 10px), repeating-linear-gradient(135deg, #FFDDBB, #FFDDBB 1px, transparent 2px, transparent 10px);
+    box-shadow: 2px 2px 3px rgba(0, 0, 0, 0.3);
+    padding: 15px;
     text-decoration: none;
-    background: #f2f2f2;
     font-size: 14pt;
     cursor: pointer;
 }
 
 .close:hover {
-    background: #e6e6ff;
+    background: white;
 }
