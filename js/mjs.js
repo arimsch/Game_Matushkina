@@ -29,9 +29,9 @@ function rndNum(min, max) {
 }
 
 function init(id) {
+    localStorage.clear();
     userName = document.getElementById(id).value;
     sessionStorage.setItem(userName, 0);
-    alert(sessionStorage.getItem(userName));
 }
 // КОНЕЦ ---- Общие функции ----
 
