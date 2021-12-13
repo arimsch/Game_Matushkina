@@ -4,9 +4,10 @@
     padding: 0;
 }
 
-::-webkit-scrollbar {
+
+/* ::-webkit-scrollbar {
     width: 0;
-}
+} */
 
 body {
     font-size: 100%;
@@ -97,7 +98,7 @@ th {
     font-size: 80px;
 }
 
-.add {
+.a0 {
     width: 20vh;
     height: 18vh;
 }

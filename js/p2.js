@@ -15,6 +15,7 @@ var trueId;
 var countForGame = 0;
 // массив id c верными значениями
 let numbers = [];
+var t = 0;
 
 
 // НАЧАЛО ---- Общие функции ----
@@ -42,6 +43,7 @@ function startSecond() {
     }
     timerId = setTimeout(alertTimer, time);
     numbers.length = 0;
+    t = 0;
     document.getElementById('curCount').innerText = countForGame;
     currentNum = rndNum(0, 9);
     parsNum(currentNum);
@@ -55,7 +57,7 @@ function startSecond() {
         var temp = rndNum(0, 9);
         document.getElementById('a' + i).innerText = temp;
         if (temp == currentNum) {
-            numbers.push(i);
+            numbers.push(currentNum);
         }
     }
 }
@@ -96,8 +98,11 @@ function parsNum(num) {
 }
 
 function clickOncard(id) {
+    var temp = document.getElementById(id).innerText;
+    makeT(temp);
     if (id == ("a" + trueId)) {
         numbers.splice(pos, numbers.indexOf(id));
+
         //     if (level == 0) {
         //         sumMore(level + 1);
         //         swal({
@@ -186,15 +191,22 @@ function alertTimer() {
     });
     start();
 }
-// конец ---- Игра1 (текст-картинка) ----
-function makeT() {
-    var picHolder = document.getElementById("block-img");
-    var newRow = picHolder.insertRow(0);
-    var newCell = newRow.insertCell(0);
-    newCell.setAttribute('class', 'add');
-    newCell.innerHTML = "строка 1 столбец 1";
+var picHolder;
+var newRow;
+var newCell;
 
-    newCell = newRow.insertCell(1);
-    newCell.setAttribute('class', 'add');
-    newCell.innerHTML = "строка 1 столбец 2";
+function makeT(str, className) {
+    if (t == 0) {
+        picHolder = document.getElementById("block-img");
+        newRow = picHolder.insertRow(0);
+    }
+    newCell = newRow.insertCell(t);
+    newCell.setAttribute('class', className);
+    newCell.innerHTML = str;
+    t++;
+    // newCell = newRow.insertCell(1);
+    // newCell.setAttribute('class', 'add');
+    // newCell.innerHTML = "строка 1 столбец 2";
 }
+
+// конец ---- Игра2----
