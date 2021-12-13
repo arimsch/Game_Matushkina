@@ -157,6 +157,13 @@ function clickOncard(id) {
 
 function sumMore(num) {
     countForGame += num;
+    if (countForGame == 5) {
+        swal("Поздравляем! Уровень пройден!");
+        var t = localStorage.getItem(localStorage.key(0));
+        localStorage.setItem(localStorage.key(0), t + countForGame);
+        alert(localStorage.getItem(localStorage.key(0)));
+        window.location.href = '../content/p2.html';
+    }
 }
 
 function sumLess(num) {
@@ -166,17 +173,17 @@ function sumLess(num) {
 
 function alertTimer() {
     swal({
-        title: "Alert Set on Timer",
-        text: "This alert will disappear after 3 seconds.",
+        title: "Время вышло",
+        text: "Попробуй еще раз!",
         position: "bottom",
-        backdrop: "linear-gradient(yellow, orange)",
+        backdrop: "linear-gradient(yellow, wheat)",
         background: "white",
         allowOutsideClick: false,
         allowEscapeKey: false,
         allowEnterKey: false,
         showConfirmButton: false,
         showCancelButton: false,
-        timer: 1000
+        timer: 1500
     });
     start();
 }

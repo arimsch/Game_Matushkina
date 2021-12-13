@@ -24,6 +24,7 @@ header {
     height: 18vh;
     background-color: #FFE340;
     width: 100%;
+    text-align: center;
 }
 
 article {
@@ -62,16 +63,28 @@ article {
     text-align: center;
 }
 
-tr {
+td {
+    background-color: wheat;
+    text-align: center;
+    border: 2px solid;
+}
+
+th {
+    width: 30vh;
+    height: 30vh;
+    text-align: center;
+    border: 2px solid;
     background-color: wheat;
 }
 
-.col {
-    text-align: center;
-    border: 2px solid;
+
+/* .col {
     width: 30vh;
     height: 30vh;
-}
+    text-align: center;
+    border: 2px solid;
+    background-color: wheat;
+} */
 
 #a0 {
     font-style: italic;
