@@ -26,7 +26,7 @@ function setLevel() {
     level = document.getElementById('s1').value;
     if (level == 0) time = 15000;
     if (level == 1) time = 10000;
-    start();
+    startSecond();
 }
 
 function rndNum(min, max) {
@@ -40,6 +40,7 @@ function printName() {
 
 // НАЧАЛО---- Игра2 ----
 function startSecond() {
+    printName();
     bool = true;
     if (timerId != undefined) {
         clearTimeout(timerId);
@@ -178,7 +179,8 @@ function alertTimer() {
         showCancelButton: false,
         timer: 1500
     });
-    start();
+    countForGame = 0;
+    startSecond();
 }
 
 var picHolder;
@@ -195,5 +197,9 @@ function makeT(str, className) {
     newCell.innerHTML = str;
     t++;
     document.getElementById(className).innerHTML = " ";
+}
+
+function goBack() {
+    window.location.href = '../content/p1_text-img.html';
 }
 // конец ---- Игра2----
