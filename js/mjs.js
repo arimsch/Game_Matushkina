@@ -158,7 +158,7 @@ function clickOncard(id) {
 function sumMore(num) {
     countForGame += num;
     if (countForGame == 5) {
-        swal("Поздравляем! Уровень пройден!");
+        swal("Поздравляем! Уровень пройден! Теперь найди ВСЕ картинки!");
         var t = localStorage.getItem(localStorage.key(0));
         localStorage.setItem(localStorage.key(0), t + countForGame);
         alert(localStorage.getItem(localStorage.key(0)));
