@@ -15,7 +15,10 @@ var trueId;
 var countForGame = 0;
 // массив id c верными значениями
 let numbers = [];
+//служебная переменная для динамического создания объектов
 var t = 0;
+//проверка, что не выбраны лишнии цыфры
+var bool = true;
 
 
 // НАЧАЛО ---- Общие функции ----
@@ -32,19 +35,23 @@ function rndNum(min, max) {
 
 function printName() {
     document.getElementById('usname').innerText = localStorage.key(0);
-    document.getElementById('curCount').innerText = countForGame;
 }
 // КОНЕЦ ---- Общие функции ----
 
 // НАЧАЛО---- Игра2 ----
 function startSecond() {
+    bool = true;
     if (timerId != undefined) {
         clearTimeout(timerId);
     }
     timerId = setTimeout(alertTimer, time);
     numbers.length = 0;
     t = 0;
-    document.getElementById('curCount').innerText = countForGame;
+    var myNode = document.getElementById("block-img");
+    while (myNode.firstChild) {
+        myNode.removeChild(myNode.firstChild);
+    }
+    document.getElementById('allCount').innerText = localStorage.getItem(localStorage.key(0));
     currentNum = rndNum(0, 9);
     parsNum(currentNum);
     trueId = rndNum(0, countCards - 1);
@@ -99,80 +106,62 @@ function parsNum(num) {
 
 function clickOncard(id) {
     var temp = document.getElementById(id).innerText;
-    makeT(temp);
-    if (id == ("a" + trueId)) {
-        numbers.splice(pos, numbers.indexOf(id));
+    makeT(temp, id);
+    if ((temp == currentNum) && (numbers.length > 0)) {
+        numbers.pop();
+    }
+    if (temp != currentNum) {
+        bool = false;
+    }
+}
 
-        //     if (level == 0) {
-        //         sumMore(level + 1);
-        //         swal({
-        //             title: 'Верно! +1 балл',
-        //             text: "Прожолжай так же!",
-        //             position: "top",
-        //             allowOutsideClick: false,
-        //             showConfirmButton: false,
-        //             showCancelButton: false,
-        //             timer: 1000
-        //         });
-        //         start();
-        //     };
-        //     if (level == 1) {
-        //         sumMore(level + 2);
-        //         swal({
-        //             title: 'Верно! +2 балла',
-        //             text: "Прожолжай так же!",
-        //             position: "top",
-        //             allowOutsideClick: false,
-        //             showConfirmButton: false,
-        //             showCancelButton: false,
-        //             timer: 1000
-        //         });
-        //         start();
-        //     };
-        // } else {
-        //     if (level == 0) {
-        //         sumLess(level + 1);
-        //         swal({
-        //             title: 'Ошибка! -1 балл',
-        //             text: "Попробуй еще раз!",
-        //             position: "top",
-        //             allowOutsideClick: false,
-        //             showConfirmButton: false,
-        //             showCancelButton: false,
-        //             timer: 1000
-        //         });
-        //         document.getElementById('curCount').innerText = countForGame;
-        //     };
-        //     if (level == 1) {
-        //         sumLess(level + 2);
-        //         swal({
-        //             title: 'Ошибка! -2 балла',
-        //             text: "Попробуй еще раз!",
-        //             position: "top",
-        //             allowOutsideClick: false,
-        //             showConfirmButton: false,
-        //             showCancelButton: false,
-        //             timer: 1000
-        //         });
-        //         document.getElementById('curCount').innerText = countForGame;
-        //     }
+function check() {
+    if (level == 0) {
+        if (numbers.length == 0 && bool) {
+            sumMore(1);
+            swal({
+                title: 'Верно! +1 балл',
+                text: "Прожолжай так же!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+            startSecond();
+        } else {
+            sumLess(1);
+            swal({
+                title: 'Ошибка! -1 балл',
+                text: "Прожолжай так же!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+            startSecond();
+        }
+
     }
 }
 
 function sumMore(num) {
     countForGame += num;
+    var t = Number(localStorage.getItem(localStorage.key(0))) + num;
+    localStorage.setItem(localStorage.key(0), t);
     if (countForGame == 5) {
-        swal("Поздравляем! Уровень пройден! Теперь найди ВСЕ картинки!");
-        var t = localStorage.getItem(localStorage.key(0));
-        localStorage.setItem(localStorage.key(0), t + countForGame);
-        alert(localStorage.getItem(localStorage.key(0)));
-        window.location.href = '../content/p2.html';
+        swal("Поздравляем! Уровень пройден! ");
+        // window.location.href = '../content/p2.html';
     }
 }
 
 function sumLess(num) {
     if (countForGame >= (num))
         countForGame -= num;
+    var t = Number(localStorage.getItem(localStorage.key(0)));
+    if (t >= num)
+        localStorage.setItem(localStorage.key(0), t - num);
 }
 
 function alertTimer() {
@@ -191,6 +180,7 @@ function alertTimer() {
     });
     start();
 }
+
 var picHolder;
 var newRow;
 var newCell;
@@ -204,9 +194,6 @@ function makeT(str, className) {
     newCell.setAttribute('class', className);
     newCell.innerHTML = str;
     t++;
-    // newCell = newRow.insertCell(1);
-    // newCell.setAttribute('class', 'add');
-    // newCell.innerHTML = "строка 1 столбец 2";
+    document.getElementById(className).innerHTML = " ";
 }
-
 // конец ---- Игра2----

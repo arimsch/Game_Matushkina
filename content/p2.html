@@ -46,8 +46,8 @@
                     <div>
                         <h2>Игрок:</h2>
                         <div id="usname"></div>
-                        <h2>Текущий счёт:</h2>
-                        <div id="curCount"></div>
+                        <h2>Итоговый счёт:</h2>
+                        <div id="allCount"></div>
                     </div>
 
                     <input type="button" onClick="start()" value="Начать игру">
@@ -57,18 +57,18 @@
                     <table id="maint">
                         <tr>
                             <th class="a0" id="a0" onclick="clickOncard('a0')"></th>
-                            <th class="col1" id="a1" onclick="clickOncard('a1')"> </th>
-                            <th class="col2" id="a2" onclick="clickOncard('a2')"></th>
-                            <th class="col3" id="a3" onclick="clickOncard('a3')"></th>
+                            <th class="a1" id="a1" onclick="clickOncard('a1')"> </th>
+                            <th class="a2" id="a2" onclick="clickOncard('a2')"></th>
+                            <th class="a3" id="a3" onclick="clickOncard('a3')"></th>
                         </tr>
                         <tr>
-                            <th class="col4" id="a4" onclick="clickOncard('a4')"></th>
-                            <th class="col5" id="a5" onclick="clickOncard('a5')"></th>
-                            <th class="col6" id="a6" onclick="clickOncard('a6')"></th>
-                            <th class="col7" id="a7" onclick="clickOncard('a7')"></th>
+                            <th class="a4" id="a4" onclick="clickOncard('a4')"></th>
+                            <th class="a5" id="a5" onclick="clickOncard('a5')"></th>
+                            <th class="a6" id="a6" onclick="clickOncard('a6')"></th>
+                            <th class="a7" id="a7" onclick="clickOncard('a7')"></th>
                         </tr>
                     </table>
-                    <a href="#" class="greenB">Проверить</a>
+                    <a href="#" class="greenB" onclick="check()">Проверить</a>
                 </div>
             </article>
 

@@ -98,7 +98,9 @@ th {
     font-size: 80px;
 }
 
-.a0 {
+.a0,
+.a1,
+.a2 {
     width: 20vh;
     height: 18vh;
 }
