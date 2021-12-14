@@ -44,6 +44,8 @@ function startSecond() {
     bool = true;
     if (timerId != undefined) {
         clearTimeout(timerId);
+    } else {
+        swal("Уровень 2! <br> Теперь найди ВСЕ картинки");
     }
     timerId = setTimeout(alertTimer, time);
     numbers.length = 0;
@@ -134,7 +136,7 @@ function check() {
             sumLess(1);
             swal({
                 title: 'Ошибка! -1 балл',
-                text: "Прожолжай так же!",
+                text: "Пoпробуй еще раз",
                 position: "top",
                 allowOutsideClick: false,
                 showConfirmButton: false,
@@ -161,7 +163,7 @@ function check() {
             sumLess(2);
             swal({
                 title: 'Ошибка! -2 балл',
-                text: "Прожолжай так же!",
+                text: "Пoпробуй еще раз",
                 position: "top",
                 allowOutsideClick: false,
                 showConfirmButton: false,
@@ -179,7 +181,6 @@ function sumMore(num) {
     var t = Number(localStorage.getItem(localStorage.key(0))) + num;
     localStorage.setItem(localStorage.key(0), t);
     if (countForGame >= 5) {
-        swal("Поздравляем! Уровень пройден! ");
         window.location.href = '../content/p3.html';
     }
 }

@@ -19,6 +19,7 @@ function setLevel() {
     level = document.getElementById('s1').value;
     if (level == 0) time = 15000;
     if (level == 1) time = 10000;
+    document.getElementById('curCount').innerText = "";
     start();
 }
 
@@ -34,7 +35,7 @@ function init(id) {
 
 function printName() {
     document.getElementById('usname').innerText = localStorage.key(0);
-    document.getElementById('curCount').innerText = countForGame;
+    document.getElementById('curCount').innerText = Number(localStorage.getItem(localStorage.key(0)));
 }
 // КОНЕЦ ---- Общие функции ----
 
@@ -44,7 +45,7 @@ function start() {
         clearTimeout(timerId);
     }
     timerId = setTimeout(alertTimer, time);
-    document.getElementById('curCount').innerText = countForGame;
+    document.getElementById('curCount').innerText = Number(localStorage.getItem(localStorage.key(0)));
     currentNum = rndNum(0, 9);
     parsNum(currentNum);
     trueId = rndNum(0, countCards - 1);
@@ -100,7 +101,7 @@ function parsNum(num) {
 function clickOncard(id) {
     if (id == ("a" + trueId)) {
         if (level == 0) {
-            sumMore(level + 1);
+            sumMore(1);
             swal({
                 title: 'Верно! +1 балл',
                 text: "Прожолжай так же!",
@@ -113,7 +114,7 @@ function clickOncard(id) {
             start();
         };
         if (level == 1) {
-            sumMore(level + 2);
+            sumMore(2);
             swal({
                 title: 'Верно! +2 балла',
                 text: "Прожолжай так же!",
@@ -127,7 +128,7 @@ function clickOncard(id) {
         };
     } else {
         if (level == 0) {
-            sumLess(level + 1);
+            sumLess(1);
             swal({
                 title: 'Ошибка! -1 балл',
                 text: "Попробуй еще раз!",
@@ -137,10 +138,10 @@ function clickOncard(id) {
                 showCancelButton: false,
                 timer: 1000
             });
-            document.getElementById('curCount').innerText = countForGame;
+            document.getElementById('curCount').innerText = Number(localStorage.getItem(localStorage.key(0)));
         };
         if (level == 1) {
-            sumLess(level + 2);
+            sumLess(2);
             swal({
                 title: 'Ошибка! -2 балла',
                 text: "Попробуй еще раз!",
@@ -150,24 +151,31 @@ function clickOncard(id) {
                 showCancelButton: false,
                 timer: 1000
             });
-            document.getElementById('curCount').innerText = countForGame;
+            document.getElementById('curCount').innerText = "";
+            document.getElementById('curCount').innerText = Number(localStorage.getItem(localStorage.key(0)));
         }
     }
 }
 
 function sumMore(num) {
-    countForGame += num;
-    if (countForGame >= 5) {
-        swal("Поздравляем! Уровень пройден! Теперь найди ВСЕ картинки!");
-        var t = Number(localStorage.getItem(localStorage.key(0))) + countForGame;
-        localStorage.setItem(localStorage.key(0), t);
+    countForGame += Number(num);
+    var t = Number(localStorage.getItem(localStorage.key(0)));
+    t += num;
+    localStorage.setItem(localStorage.key(0), t);
+    if (countForGame == 5 || countForGame == 6) {
         window.location.href = '../content/p2.html';
     }
 }
 
+
 function sumLess(num) {
-    if (countForGame >= (num))
+    if (countForGame >= (num)) {
         countForGame -= num;
+    }
+    var t = Number(localStorage.getItem(localStorage.key(0)));
+    if (t >= num)
+        t -= num;
+    localStorage.setItem(localStorage.key(0), t);
 }
 
 function alertTimer() {

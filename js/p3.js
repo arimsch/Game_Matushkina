@@ -3,6 +3,9 @@ var div = document.getElementById('txt');
 
 // НАЧАЛО ---- Игра3----
 function wrapWords() {
+    swal("Уровень 3!");
+    document.getElementById('usname').innerText = localStorage.key(0);
+    document.getElementById('allCount').innerText = Number(localStorage.getItem(localStorage.key(0)));
     var html = div.innerHTML;
     var words = html.split(/ /);
     console.log(words);
