@@ -29,7 +29,7 @@ header {
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 18vh;
+    height: 20vh;
     background-color: #FFE340;
     width: 100%;
     text-align: center;
@@ -78,15 +78,13 @@ td {
 }
 
 th {
-    width: 30vh;
-    height: 30vh;
     text-align: center;
     border: 2px solid;
     background-color: wheat;
 }
 
 .a0 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
     font-family: 'Bakbak One', cursive;
     font-weight: 900;
@@ -96,7 +94,7 @@ th {
 }
 
 .a1 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
     font-style: italic;
     font-weight: 1000;
@@ -106,7 +104,7 @@ th {
 }
 
 .a2 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
     color: #1E90FF;
     border-color: black;
@@ -116,7 +114,7 @@ th {
 }
 
 .a3 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
     font-family: 'Bakbak One', cursive;
     font-weight: 900;
@@ -126,37 +124,37 @@ th {
 }
 
 .a4 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
     font-family: 'Bakbak One', cursive;
     font-weight: 900;
     font-size: 90px;
-    color: blueviolet;
+    color: #6B8E23;
     border-color: black;
 }
 
 .a5 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
     font-family: 'Roboto Slab', serif;
     font-weight: 900;
-    font-size: 90px;
+    font-size: 80px;
     color: blueviolet;
     border-color: black;
 }
 
 .a6 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
-    font-family: 'Bakbak One', cursive;
+    font-style: italic;
     font-weight: 900;
     font-size: 90px;
-    color: blueviolet;
+    color: #40E0D0;
     border-color: black;
 }
 
 .a7 {
-    width: 20vh;
+    width: 25vh;
     height: 18vh;
     font-family: 'Bakbak One', cursive;
     font-weight: 900;
@@ -169,9 +167,10 @@ th {
     background-color: #4CAF50;
     border: none;
     color: white;
-    padding: 15px 32px;
+    padding: 10px 32px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
+    margin-top: 25px;
 }
