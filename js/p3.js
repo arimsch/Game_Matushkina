@@ -1,5 +1,6 @@
 var long;
 var div = document.getElementById('txt');
+var mas1 = ['машин', 'язык', 'груши', 'плавать'];
 
 // НАЧАЛО ---- Игра3----
 function wrapWords() {
@@ -22,6 +23,7 @@ div.addEventListener('click', function(event) {
     if (target.innerHTML.length != long) {
         target.setAttribute("class", "highlight");
     }
+    var e = (document.getElementsByClassName("highlight"));
 });
 
 div.addEventListener('dblclick', function(event) {
@@ -30,6 +32,11 @@ div.addEventListener('dblclick', function(event) {
         target.removeAttribute("class");
     }
 });
+
+function text1() {
+    div.innerHTML = "Леопард является видом хищных машин млекопитающих семейства кошачьих. В древние времена существовало мнение язык о том, что леопард не что иное как гибрид груши пантеры и льва. Именно это предположение вылилось в название животного, соединив в себе два греческих слова: «леон» (что в переводе означает «лев») и «пардос» (что в переводе означает пантера плавать).";
+    wrapWords()
+}
 
 function goBack() {
     window.location.href = '../content/p2.html';
