@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../style/mstyle.css">
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.min.css'>
+    <title>Document</title>
+</head>
+
+<body onload="startSecond()">
+    <div id="header-container">
+        <header>
+            <h3>Это последний уровень. Найди все слова, которые лишние в тексте по смыслу. <br> Чтобы выделить слово, кликни на него 1 раз. Чтобы отменить выбор - кликни 2 раза. Когда все слова будут выделены, нажми кнопку "Проверить"</h3>
+        </header>
+    </div>
+
+    <!--===== КОНТЕНТ =====-->
+    <div id="main-container">
+        <main>
+            <article>
+                <div id="sidebar">
+                    <div id="levSet">
+                        <form name="f1">
+                            Выберете уровень:<br>
+                            <select name="lev" id="s1">
+                              <option value="0">Легкий</option>
+                              <option value="1">Сложный</option>
+                            </select>
+                            <input type="button" onClick="setLevel()" value="Установить">
+                        </form>
+                    </div>
+
+                    <div id="colSet">
+                        <form name="f1">
+                            Выберете тему:<br>
+                            <select name="lev" id="s1">
+                              <option value="0">Светлый</option>
+                              <option value="1">Темный</option>
+                            </select>
+                            <input type="button" onClick="" value="Пока не работаю">
+                        </form>
+                    </div>
+                    <div>
+                        <h2>Игрок:</h2>
+                        <div id="usname"></div>
+                        <h2>Итоговый счёт:</h2>
+                        <div id="allCount"></div>
+                    </div>
+
+                    <input type="button" onClick="goBack()" value="Вернуться на уровень 2">
+                </div>
+                <div class="cont">
+
+                    <a href="#" class="greenB" onclick="check()">Проверить</a>
+                </div>
+            </article>
+
+        </main>
+
+    </div>
+
+    <script src="../js/p3.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@7.12.15/dist/sweetalert2.all.min.js"></script>
+</body>
+
+</html>

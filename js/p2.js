@@ -143,6 +143,33 @@ function check() {
             });
             startSecond();
         }
+    }
+    if (level == 1) {
+        if (numbers.length == 0 && bool) {
+            sumMore(2);
+            swal({
+                title: 'Верно! +2 балл',
+                text: "Прожолжай так же!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+            startSecond();
+        } else {
+            sumLess(2);
+            swal({
+                title: 'Ошибка! -2 балл',
+                text: "Прожолжай так же!",
+                position: "top",
+                allowOutsideClick: false,
+                showConfirmButton: false,
+                showCancelButton: false,
+                timer: 1000
+            });
+            startSecond();
+        }
 
     }
 }
@@ -151,9 +178,9 @@ function sumMore(num) {
     countForGame += num;
     var t = Number(localStorage.getItem(localStorage.key(0))) + num;
     localStorage.setItem(localStorage.key(0), t);
-    if (countForGame == 5) {
+    if (countForGame >= 5) {
         swal("Поздравляем! Уровень пройден! ");
-        // window.location.href = '../content/p2.html';
+        window.location.href = '../content/p3.html';
     }
 }
 

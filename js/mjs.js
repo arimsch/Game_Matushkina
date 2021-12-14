@@ -157,11 +157,10 @@ function clickOncard(id) {
 
 function sumMore(num) {
     countForGame += num;
-    if (countForGame == 5) {
+    if (countForGame >= 5) {
         swal("Поздравляем! Уровень пройден! Теперь найди ВСЕ картинки!");
         var t = Number(localStorage.getItem(localStorage.key(0))) + countForGame;
         localStorage.setItem(localStorage.key(0), t);
-        alert(localStorage.getItem(localStorage.key(0)));
         window.location.href = '../content/p2.html';
     }
 }
