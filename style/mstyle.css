@@ -19,6 +19,10 @@ body {
     /* background-size: 100%; */
 }
 
+.highlight {
+    background-color: rgb(47, 0, 255);
+}
+
 header {
     display: flex;
     justify-content: center;

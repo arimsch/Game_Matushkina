@@ -10,7 +10,7 @@
     <title>Document</title>
 </head>
 
-<body onload="startSecond()">
+<body onload="wrapWords()">
     <div id="header-container">
         <header>
             <h3>Это последний уровень. Найди все слова, которые лишние в тексте по смыслу. <br> Чтобы выделить слово, кликни на него 1 раз. Чтобы отменить выбор - кликни 2 раза. Когда все слова будут выделены, нажми кнопку "Проверить"</h3>
@@ -53,8 +53,10 @@
                     <input type="button" onClick="goBack()" value="Вернуться на уровень 2">
                 </div>
                 <div class="cont">
-
-                    <a href="#" class="greenB" onclick="check()">Проверить</a>
+                    <div class='item' id='txt'>
+                        Hello my beuty
+                    </div>
+                    <a href="#" class="greenB">Проверить</a>
                 </div>
             </article>
 
