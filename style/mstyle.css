@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bakbak+One&family=Corinthia:wght@700&family=Roboto+Slab:wght@500&display=swap');
 * {
     box-sizing: border-box;
     margin: 0;
@@ -83,31 +85,84 @@ th {
     background-color: wheat;
 }
 
-
-/* .col {
-    width: 30vh;
-    height: 30vh;
-    text-align: center;
-    border: 2px solid;
-    background-color: wheat;
-} */
-
-#a0 {
-    font-style: italic;
+.a0 {
+    width: 20vh;
+    height: 18vh;
+    font-family: 'Bakbak One', cursive;
     font-weight: 900;
     font-size: 90px;
+    color: blueviolet;
+    border-color: black;
 }
 
-#a1 {
+.a1 {
+    width: 20vh;
+    height: 18vh;
+    font-style: italic;
     font-weight: 1000;
     font-size: 80px;
+    color: #FA8072;
+    border-color: black;
 }
 
-.a0,
-.a1,
 .a2 {
     width: 20vh;
     height: 18vh;
+    color: #1E90FF;
+    border-color: black;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 1000;
+    font-size: 95px;
+}
+
+.a3 {
+    width: 20vh;
+    height: 18vh;
+    font-family: 'Bakbak One', cursive;
+    font-weight: 900;
+    font-size: 90px;
+    color: blueviolet;
+    border-color: black;
+}
+
+.a4 {
+    width: 20vh;
+    height: 18vh;
+    font-family: 'Bakbak One', cursive;
+    font-weight: 900;
+    font-size: 90px;
+    color: blueviolet;
+    border-color: black;
+}
+
+.a5 {
+    width: 20vh;
+    height: 18vh;
+    font-family: 'Roboto Slab', serif;
+    font-weight: 900;
+    font-size: 90px;
+    color: blueviolet;
+    border-color: black;
+}
+
+.a6 {
+    width: 20vh;
+    height: 18vh;
+    font-family: 'Bakbak One', cursive;
+    font-weight: 900;
+    font-size: 90px;
+    color: blueviolet;
+    border-color: black;
+}
+
+.a7 {
+    width: 20vh;
+    height: 18vh;
+    font-family: 'Bakbak One', cursive;
+    font-weight: 900;
+    font-size: 90px;
+    color: #D2691E;
+    border-color: black;
 }
 
 .greenB {
