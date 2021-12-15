@@ -1,10 +1,10 @@
 var long;
 var div = document.getElementById('txt');
 var mas1 = ['машин', 'язык', 'груши', 'плавать'];
+var res = false;
 
 // НАЧАЛО ---- Игра3----
 function wrapWords() {
-    swal("Уровень 3!");
     document.getElementById('usname').innerText = localStorage.key(0);
     document.getElementById('allCount').innerText = Number(localStorage.getItem(localStorage.key(0)));
     var html = div.innerHTML;
@@ -23,7 +23,6 @@ div.addEventListener('click', function(event) {
     if (target.innerHTML.length != long) {
         target.setAttribute("class", "highlight");
     }
-    var e = (document.getElementsByClassName("highlight"));
 });
 
 div.addEventListener('dblclick', function(event) {
@@ -34,8 +33,28 @@ div.addEventListener('dblclick', function(event) {
 });
 
 function text1() {
-    div.innerHTML = "Леопард является видом хищных машин млекопитающих семейства кошачьих. В древние времена существовало мнение язык о том, что леопард не что иное как гибрид груши пантеры и льва. Именно это предположение вылилось в название животного, соединив в себе два греческих слова: «леон» (что в переводе означает «лев») и «пардос» (что в переводе означает пантера плавать).";
+    div.innerHTML = "Леопард является видом хищных машин млекопитающих семейства кошачьих. В древние времена существовало мнение язык о том, что леопард не что иное как гибрид груши пантеры и льва. Именно это предположение вылилось в название животного, соединив в себе два греческих слова: «леон» ( что в переводе означает «лев» ) и «пардос» ( что в переводе означает плавать пантера ).";
     wrapWords()
+}
+
+function check() {
+    var e = (document.getElementsByClassName("highlight"));
+    for (var i = 0; i < e.length; i++) {
+        for (var k = 0; k < mas1.length; k++) {
+            if ((mas1[k]) == e[i].innerText) {
+                e[i].setAttribute("class", "trueAnswer");
+            } else {
+                e[i].setAttribute("class", "wrongAnswer");
+            }
+        }
+    }
+    if (document.getElementsByClassName("trueAnswer").length == mas1.length) {
+        t = Number(localStorage.getItem(localStorage.key(0))) + Number(5);
+        localStorage.setItem(localStorage.key(0), t);
+        window.location.href = '../content/p1_text-img.html';
+    } else {
+        window.location.href = '../content/p3.html'
+    }
 }
 
 function goBack() {

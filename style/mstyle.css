@@ -6,23 +6,26 @@
     padding: 0;
 }
 
-
-/* ::-webkit-scrollbar {
-    width: 0;
-} */
-
 body {
     font-size: 100%;
     font-family: sans-serif;
     height: 100%;
-    background-color: #fffacd;
+    /* background-color: #fffacd; */
     color: #1b1b1b;
-    /* background-image: url(../img/background.jpg); */
+    background-image: url(../img/cloud.jpg);
     /* background-size: 100%; */
 }
 
 .highlight {
-    background-color: rgb(47, 0, 255);
+    background-color: #FA8072;
+}
+
+.trueAnswer {
+    background-color: green;
+}
+
+.wrongAnswer {
+    background-color: crimson;
 }
 
 header {
@@ -81,6 +84,19 @@ th {
     text-align: center;
     border: 2px solid;
     background-color: wheat;
+}
+
+.a0:hover,
+.a1:hover,
+.a2:hover,
+.a3:hover,
+.a4:hover,
+.a5:hover,
+.a6:hover,
+.a7:hover {
+    margin-top: 25px;
+    transform: scale(1.2, 1.2);
+    padding-bottom: 17px;
 }
 
 .a0 {
@@ -173,4 +189,24 @@ th {
     display: inline-block;
     font-size: 16px;
     margin-top: 25px;
+}
+
+.newB {
+    background-color: #FA8072;
+    border: none;
+    color: white;
+    padding: 10px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10%;
+}
+
+#txt {
+    text-align: center;
+    padding: 60px;
+    margin-right: 20vh;
+    font-family: 'Bakbak One', cursive;
+    font-weight: 900;
 }
