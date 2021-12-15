@@ -13,7 +13,7 @@
 <body onload="text1()">
     <div id="header-container">
         <header>
-            <h3>Это последний уровень. Найди все слова, которые лишние в тексте по смыслу. <br> Чтобы выделить слово, кликни на него 1 раз. Чтобы отменить выбор - кликни 2 раза. Когда все слова будут выделены, нажми кнопку "Проверить"</h3>
+            <h3>Этот уровень без ограничения по времени.<br> Найди все слова, которые лишние в тексте по смыслу. <br> Чтобы выделить слово, кликни на него 1 раз. Чтобы отменить выбор - кликни 2 раза. Когда все слова будут выделены, нажми кнопку "Проверить"</h3>
         </header>
     </div>
 
@@ -36,11 +36,11 @@
                     <div id="colSet">
                         <form name="f1">
                             Выберете тему:<br>
-                            <select name="lev" id="s1">
+                            <select name="lev" id="s2">
                               <option value="0">Светлый</option>
                               <option value="1">Темный</option>
                             </select>
-                            <input type="button" onClick="" value="Пока не работаю">
+                            <input type="button" onClick="color()" value="Установить">
                         </form>
                     </div>
                     <div>
@@ -53,7 +53,7 @@
                     <input type="button" onClick="goBack()" value="Вернуться на уровень 2">
                 </div>
                 <div class="cont">
-                    <div class='item' id='txt'> </div>
+                    <div class='item' id='txt'></div>
                     <a href="#" class="newB" onclick="check()">Проверить</a>
                 </div>
             </article>

@@ -2,7 +2,17 @@ var long;
 var div = document.getElementById('txt');
 var mas1 = ['машин', 'язык', 'груши', 'плавать'];
 var res = false;
+var countTrue = 0;
 
+function color() {
+    level = document.getElementById('s2').value;
+    if (level == 0) {
+        document.body.style.backgroundImage = "url(../img/cloud.jpg)";
+    }
+    if (level == 1) {
+        document.body.style.backgroundImage = "url(../img/sun.jpg)";
+    }
+}
 // НАЧАЛО ---- Игра3----
 function wrapWords() {
     document.getElementById('usname').innerText = localStorage.key(0);
@@ -40,20 +50,33 @@ function text1() {
 function check() {
     var e = (document.getElementsByClassName("highlight"));
     for (var i = 0; i < e.length; i++) {
+        alert(e.length);
         for (var k = 0; k < mas1.length; k++) {
+            alert(mas1.length);
             if ((mas1[k]) == e[i].innerText) {
                 e[i].setAttribute("class", "trueAnswer");
+                countTrue += 1;
+                break;
             } else {
                 e[i].setAttribute("class", "wrongAnswer");
             }
         }
     }
-    if (document.getElementsByClassName("trueAnswer").length == mas1.length) {
-        t = Number(localStorage.getItem(localStorage.key(0))) + Number(5);
+    alert(mas1.length);
+    if (countTrue == mas1.length) {
+        var t = Number(localStorage.getItem(localStorage.key(0))) + Number(5);
         localStorage.setItem(localStorage.key(0), t);
         window.location.href = '../content/p1_text-img.html';
-    } else {
-        window.location.href = '../content/p3.html'
+    }
+    alert(countTrue);
+
+    if (countTrue != mas1.length) {
+        alert();
+        var p = Number(localStorage.getItem(localStorage.key(0)));
+        if (localStorage.getItem(localStorage.key(0)) > 1) {
+            localStorage.setItem(localStorage.key(0), p - 2);
+        }
+        window.location.reload();
     }
 }
 

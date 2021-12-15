@@ -8,12 +8,11 @@
 
 body {
     font-size: 100%;
-    font-family: sans-serif;
+    font-family: 'Roboto Slab', serif;
     height: 100%;
-    /* background-color: #fffacd; */
     color: #1b1b1b;
     background-image: url(../img/cloud.jpg);
-    /* background-size: 100%; */
+    background-size: 100%;
 }
 
 .highlight {
@@ -33,14 +32,14 @@ header {
     justify-content: center;
     align-items: center;
     height: 20vh;
-    background-color: #FFE340;
+    /* background-color: #FFE340; */
     width: 100%;
     text-align: center;
 }
 
 article {
     position: fixed;
-    background-color: #fffacd;
+    /* background-color: #fffacd; */
     display: flex;
     flex-direction: row;
     justify-content: flex-start;
@@ -54,7 +53,7 @@ article {
     flex-direction: column;
     justify-content: space-between;
     order: 1;
-    background-color: #fefae0;
+    background-color: #f7f3de;
     width: 20%;
     border-radius: 5px;
     box-shadow: rgba(0, 0, 0, 0.5) 0px 1px 3px;
@@ -192,7 +191,7 @@ th {
 }
 
 .newB {
-    background-color: #FA8072;
+    background-color: #9a6eff;
     border: none;
     color: white;
     padding: 10px 32px;
