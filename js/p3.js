@@ -5,11 +5,11 @@ var res = false;
 var countTrue = 0;
 
 function color() {
-    level = document.getElementById('s2').value;
-    if (level == 0) {
+    var levC = document.getElementById('s2').value;
+    if (levC == 0) {
         document.body.style.backgroundImage = "url(../img/cloud.jpg)";
     }
-    if (level == 1) {
+    if (levC == 1) {
         document.body.style.backgroundImage = "url(../img/sun.jpg)";
     }
 }
@@ -49,21 +49,17 @@ function text1() {
 
 function check() {
     var e = (document.getElementsByClassName("highlight"));
-    alert(countTrue);
     for (var i = 0; i < e.length; i++) {
-        console.log(i);
+        // console.log(i);
         for (var k = 0; k < mas1.length; k++) {
-            console.log(k);
-            console.log(e[i].innerText);
+            // console.log(k);
+            // console.log(e[i].innerText);
             if ((mas1[k]) == e[i].innerText) {
                 e[i].style.backgroundColor = "green";
-                // setAttribute("class", "trueAnswer");
                 countTrue++;
                 break;
             } else {
                 e[i].style.backgroundColor = "crimson";
-                console.log('h');
-                // e[i].setAttribute("class", "wrongAnswer");
             }
         }
     }
@@ -78,7 +74,7 @@ function check() {
             localStorage.setItem(localStorage.key(0), p - 2);
         }
         swal({
-            title: 'Есть ошибки',
+            title: 'Есть ошибки, -2 балла',
             text: "Попробуй еще раз",
             position: "top",
             allowOutsideClick: false,

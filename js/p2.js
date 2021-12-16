@@ -29,6 +29,16 @@ function setLevel() {
     startSecond();
 }
 
+function color() {
+    var levC = document.getElementById('s2').value;
+    if (levC == 0) {
+        document.body.style.backgroundImage = "url(../img/cloud.jpg)";
+    }
+    if (levC == 1) {
+        document.body.style.backgroundImage = "url(../img/sun.jpg)";
+    }
+}
+
 function rndNum(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
 }
