@@ -49,35 +49,49 @@ function text1() {
 
 function check() {
     var e = (document.getElementsByClassName("highlight"));
+    alert(countTrue);
     for (var i = 0; i < e.length; i++) {
-        alert(e.length);
+        console.log(i);
         for (var k = 0; k < mas1.length; k++) {
-            alert(mas1.length);
+            console.log(k);
+            console.log(e[i].innerText);
             if ((mas1[k]) == e[i].innerText) {
-                e[i].setAttribute("class", "trueAnswer");
-                countTrue += 1;
+                e[i].style.backgroundColor = "green";
+                // setAttribute("class", "trueAnswer");
+                countTrue++;
                 break;
             } else {
-                e[i].setAttribute("class", "wrongAnswer");
+                e[i].style.backgroundColor = "crimson";
+                console.log('h');
+                // e[i].setAttribute("class", "wrongAnswer");
             }
         }
     }
-    alert(mas1.length);
     if (countTrue == mas1.length) {
         var t = Number(localStorage.getItem(localStorage.key(0))) + Number(5);
         localStorage.setItem(localStorage.key(0), t);
-        window.location.href = '../content/p1_text-img.html';
+        window.location.href = '../content/finalPage.html';
     }
-    alert(countTrue);
-
     if (countTrue != mas1.length) {
-        alert();
         var p = Number(localStorage.getItem(localStorage.key(0)));
         if (localStorage.getItem(localStorage.key(0)) > 1) {
             localStorage.setItem(localStorage.key(0), p - 2);
         }
-        window.location.reload();
+        swal({
+            title: 'Есть ошибки',
+            text: "Попробуй еще раз",
+            position: "top",
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            showCancelButton: false,
+            timer: 2000
+        });
+        setTimeout(reloadPag, 4000);
     }
+}
+
+function reloadPag() {
+    window.location.reload();
 }
 
 function goBack() {
