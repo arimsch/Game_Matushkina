@@ -1,6 +1,8 @@
 var long;
 var div = document.getElementById('txt');
 var mas1 = ['машин', 'язык', 'груши', 'плавать'];
+var mas2 = ['пять', 'мишура', 'ель'];
+var mas3 = ['лопнуть', 'громко'];
 var res = false;
 var countTrue = 0;
 
@@ -47,7 +49,27 @@ function text() {
 }
 
 function text2() {
+    mas1 = mas2;
+    console.log(mas2);
+    wrapWords();
+}
 
+function text3() {
+    mas1 = mas3;
+    console.log(mas2);
+    wrapWords();
+}
+
+function finish() {
+    swal({
+        title: 'Похоже, тексты закончились!....',
+        text: "Смело переходи к результатам!",
+        position: "top",
+        allowOutsideClick: false,
+        showConfirmButton: false,
+        showCancelButton: false,
+        timer: 3000
+    });
 }
 
 
@@ -72,7 +94,7 @@ function check() {
         localStorage.setItem(localStorage.key(0), t);
         swal({
             title: 'Всё верно, +5 баллов',
-            text: "Переходи к результатом или получи другой текст",
+            text: "Переходи к результатам или получи другой текст",
             position: "top",
             allowOutsideClick: false,
             showConfirmButton: false,
@@ -95,7 +117,7 @@ function check() {
             showCancelButton: false,
             timer: 2000
         });
-        setTimeout(reloadPag, 4000);
+        setTimeout(reloadPag, 2500);
     }
 }
 
