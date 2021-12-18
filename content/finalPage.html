@@ -9,17 +9,21 @@
     <title>Document</title>
 </head>
 
-<body>
+<body onload="printName()">
     <main>
-        <h2>Поздравляем, вы успешно справились со всеми уровнями игры "Картинка-цифра-текст!"</h2>
+        <div>
+            <h2 style="margin-left: 30%;">Игрок:</h2>
+            <div id="usname" style="margin-left: 40%;"></div>
+            <h2 style="margin-left: 30%;">Общий счёт:</h2>
+            <div id="curCount" style="margin-left: 40%;"></div>
+        </div>
+        <h2>Поздравляем!<br> Вы успешно справились со всеми уровнями игры "Картинка-цифра-текст!"</h2>
         <div class="text">
-            <!-- <h3>Чтобы стать настоящим профессионалом, нужно пройти все уровни.</h3>
-            <h3>На каждом уровне будут прописаны правила игры. Так что смело приступай к игре!</h3> -->
         </div>
         <a href="../content/p1_text-img.html" class="two">Играть еще раз</a>
     </main>
 
-    <script src="js/mjs.js"></script>
+    <script src="../js/mjs.js"></script>
 </body>
 
 </html>

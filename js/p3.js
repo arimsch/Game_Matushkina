@@ -42,10 +42,14 @@ div.addEventListener('dblclick', function(event) {
     }
 });
 
-function text1() {
-    div.innerHTML = "Леопард является видом хищных машин млекопитающих семейства кошачьих. В древние времена существовало мнение язык о том, что леопард не что иное как гибрид груши пантеры и льва. Именно это предположение вылилось в название животного, соединив в себе два греческих слова: «леон» ( что в переводе означает «лев» ) и «пардос» ( что в переводе означает плавать пантера ).";
+function text() {
     wrapWords()
 }
+
+function text2() {
+
+}
+
 
 function check() {
     var e = (document.getElementsByClassName("highlight"));
@@ -66,7 +70,16 @@ function check() {
     if (countTrue == mas1.length) {
         var t = Number(localStorage.getItem(localStorage.key(0))) + Number(5);
         localStorage.setItem(localStorage.key(0), t);
-        window.location.href = '../content/finalPage.html';
+        swal({
+            title: 'Всё верно, +5 баллов',
+            text: "Переходи к результатом или получи другой текст",
+            position: "top",
+            allowOutsideClick: false,
+            showConfirmButton: false,
+            showCancelButton: false,
+            timer: 3000
+        });
+        setTimeout(reloadPag, 4000);
     }
     if (countTrue != mas1.length) {
         var p = Number(localStorage.getItem(localStorage.key(0)));
