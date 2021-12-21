@@ -206,3 +206,13 @@ function alertTimer() {
     start();
 }
 // конец ---- Игра1 (текст-картинка) ----
+
+function wr() {
+    var text = 'username:' + localStorage.key(0) + '  count:' + localStorage.getItem(localStorage.key(0));
+    document.write('<a href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text) + '" download="text.txt">text.txt</a>');
+    setTimeout(goBack, 5000);
+}
+
+function goBack() {
+    window.location.href = '../content/finalPage.html';
+}
