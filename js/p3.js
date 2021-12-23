@@ -3,7 +3,8 @@ var div = document.getElementById('txt');
 var mas1 = ['машин', 'язык', 'груши', 'плавать'];
 var mas2 = ['пять', 'мишура', 'ель'];
 var mas3 = ['лопнуть', 'громко'];
-var countText = ['1', '2', '3'];
+var countText = [1, 2, 3];
+var numOfText;
 var res = false;
 var countTrue = 0;
 
@@ -18,7 +19,18 @@ function color() {
 }
 
 function rndNum(min, max) {
-    return Math.floor(Math.random() * (max - min + 1)) + min;
+    var p = Math.floor(Math.random() * (max - min + 1)) + min;
+    if (countText.indexOf(p) >= 0) {
+        countText.splice(countText.indexOf(p), 1);
+        return p;
+    }
+    if (countText.length == 0) {
+        return 0;
+    } else {
+        p = countText[countText.length - 1];
+        countText.splice(countText.indexOf(p), 1);
+        return p;
+    }
 }
 // НАЧАЛО ---- Игра3----
 function wrapWords() {
@@ -52,11 +64,20 @@ div.addEventListener('dblclick', function(event) {
 function text() {
     var s = rndNum(1, 3);
     eval('text' + s)();
+    numOfText = s;
+}
+
+function texts() {
+    text();
 }
 
 function text1() {
     document.getElementById('txt').innerText = 'Леопард является видом хищных машин млекопитающих семейства кошачьих. В древние времена существовало мнение язык о том, что леопард не что иное как гибрид груши пантеры и льва. Именно это предположение вылилось в название животного, соединив в себе два греческих слова: «леон» ( что в переводе означает «лев» ) и «пардос» ( что в переводе означает плавать пантера ).';
     wrapWords();
+}
+
+function text0() {
+    window.location.href = '../content/p3.html';
 }
 
 function text2() {
@@ -85,6 +106,7 @@ function finish() {
 
 
 function check() {
+    countTrue = 0;
     var e = (document.getElementsByClassName("highlight"));
     for (var i = 0; i < e.length; i++) {
         // console.log(i);
@@ -105,14 +127,14 @@ function check() {
         localStorage.setItem(localStorage.key(0), t);
         swal({
             title: 'Всё верно, +5 баллов',
-            text: "Переходи к результатам или получи другой текст",
+            text: "Переходи к результатам или продолжай игру",
             position: "top",
             allowOutsideClick: false,
             showConfirmButton: false,
             showCancelButton: false,
             timer: 3000
         });
-        setTimeout(reloadPag, 4000);
+        setTimeout(text, 4000);
     }
     if (countTrue != mas1.length) {
         var p = Number(localStorage.getItem(localStorage.key(0)));
@@ -128,7 +150,7 @@ function check() {
             showCancelButton: false,
             timer: 2000
         });
-        setTimeout(reloadPag, 2500);
+        setTimeout(eval('text' + numOfText), 2500);
     }
 }
 
