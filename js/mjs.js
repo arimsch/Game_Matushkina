@@ -47,6 +47,7 @@ function printName() {
     document.getElementById('usname').innerText = localStorage.key(0);
     document.getElementById('curCount').innerText = Number(localStorage.getItem(localStorage.key(0)));
 }
+
 // КОНЕЦ ---- Общие функции ----
 
 // НАЧАЛО ---- Игра1 (текст-картинка) ----
@@ -207,10 +208,37 @@ function alertTimer() {
 }
 // конец ---- Игра1 (текст-картинка) ----
 
-function wr() {
-    var text = 'username:' + localStorage.key(0) + '  count:' + localStorage.getItem(localStorage.key(0));
-    document.write('<a href="data:text/plain;charset=utf-8,%EF%BB%BF' + encodeURIComponent(text) + '" download="text.txt">text.txt</a>');
-    setTimeout(goBack, 5000);
+// конец ---- Сохранить результаты ----
+var date = new Date();
+var hrs = date.getHours();
+var mins = date.getMinutes();
+let data = "Игрок: " + localStorage.key(0) + " " + "\nРезультат: " +
+    localStorage.getItem(localStorage.key(0)) + "\nРезультаты записаны " + date.getDay() + "." + date.getMonth()
+" в" + hrs + ":" + mins;
+let filename = "Result_" + localStorage.key(0) + "_date:" + date.getDay() + "_" + date.getMonth();
+let type = "txt";
+
+function save() {
+
+    download(data, filename, type);
+
+    function download(data, filename, type) {
+        var file = new Blob([data], { type: type });
+        if (window.navigator.msSaveOrOpenBlob)
+            window.navigator.msSaveOrOpenBlob(file, filename);
+        else {
+            var a = document.createElement("a"),
+                url = URL.createObjectURL(file);
+            a.href = url;
+            a.download = filename;
+            document.body.appendChild(a);
+            a.click();
+            setTimeout(function() {
+                document.body.removeChild(a);
+                window.URL.revokeObjectURL(url);
+            }, 0);
+        }
+    }
 }
 
 function goBack() {
