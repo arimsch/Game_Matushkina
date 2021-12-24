@@ -213,9 +213,8 @@ var date = new Date();
 var hrs = date.getHours();
 var mins = date.getMinutes();
 let data = "Игрок: " + localStorage.key(0) + " " + "\nРезультат: " +
-    localStorage.getItem(localStorage.key(0)) + "\nРезультаты записаны " + date.getDay() + "." + date.getMonth()
-" в" + hrs + ":" + mins;
-let filename = "Result_" + localStorage.key(0) + "_date:" + date.getDay() + "_" + date.getMonth();
+    localStorage.getItem(localStorage.key(0)) + "\nРезультаты записаны " + date.getDate() + "." + (Number(date.getMonth()) + 1) + " в " + hrs + ":" + mins;
+let filename = "Result_" + localStorage.key(0) + "_date:" + date.getDate() + "_" + (Number(date.getMonth()) + 1);
 let type = "txt";
 
 function save() {
