@@ -111,24 +111,34 @@ function finish() {
     });
 }
 
+var prog = false;
 
 function check() {
     countTrue = 0;
     var e = (document.getElementsByClassName("highlight"));
     for (var i = 0; i < e.length; i++) {
+        prog = false;
         // console.log(i);
         for (var k = 0; k < mas1.length; k++) {
             // console.log(k);
             // console.log(e[i].innerText);
             if ((mas1[k]) == e[i].innerText) {
                 e[i].style.backgroundColor = "green";
-                countTrue++;
+                prog = true;
                 break;
-            } else {
+            }
+            if ((mas1[k]) != e[i].innerText) {
                 e[i].style.backgroundColor = "crimson";
             }
         }
+        if (prog) {
+            countTrue++;
+        } else {
+            countTrue--;
+        }
     }
+    alert(countTrue);
+    alert(mas1.length);
     if (countTrue == mas1.length) {
         var t = Number(localStorage.getItem(localStorage.key(0))) + Number(5);
         localStorage.setItem(localStorage.key(0), t);
@@ -144,6 +154,7 @@ function check() {
         setTimeout(text, 4000);
     }
     if (countTrue != mas1.length) {
+        countTrue = 0;
         var p = Number(localStorage.getItem(localStorage.key(0)));
         if (localStorage.getItem(localStorage.key(0)) > 1) {
             localStorage.setItem(localStorage.key(0), p - 2);
