@@ -61,6 +61,12 @@ div.addEventListener('dblclick', function(event) {
     }
 });
 
+document.addEventListener('keydown', function(event) {
+    if (event.code == 'KeyZ' && (event.ctrlKey || event.metaKey)) {
+        texts();
+    }
+});
+
 function text() {
     var s = rndNum(1, 3);
     eval('text' + s)();
