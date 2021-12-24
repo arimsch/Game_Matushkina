@@ -240,4 +240,5 @@ function makeT(str, className) {
 function goBack() {
     window.location.href = '../content/p1_text-img.html';
 }
+
 // конец ---- Игра2----
