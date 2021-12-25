@@ -137,8 +137,6 @@ function check() {
             countTrue--;
         }
     }
-    alert(countTrue);
-    alert(mas1.length);
     if (countTrue == mas1.length) {
         var t = Number(localStorage.getItem(localStorage.key(0))) + Number(5);
         localStorage.setItem(localStorage.key(0), t);
